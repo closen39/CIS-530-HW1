@@ -1,4 +1,5 @@
 # Nate Close: closen@seas.upenn.edu
+# Jason Mow: jmow@seas.upenn.edu
 
 # Import the corpus reader
 from nltk.corpus import PlaintextCorpusReader
@@ -7,14 +8,20 @@ from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
 
 # lists all sub-directories from this directory
-# TODO: FINISH
+# Functional, but does not work on empty directories!
 def get_sub_directories(directory):
-    return None
+    files = PlaintextCorpusReader(directory, ".*")
+    dirs = list()
+    for f in files.fileids():
+        if "/" in f:
+            if (f[:f.index("/")] not in dirs):
+                dirs.append(f[:f.index("/")])
+    return dirs
 
 # gets all files in this directory and its sub-directories
 def get_all_files(directory):
-  files = PlaintextCorpusReader(directory, '.*')
-  return files.fileids() 
+    files = PlaintextCorpusReader(directory, '.*')
+    return files.fileids() 
 
 # returns a list of all sentences in that file
 def load_file_sentences(filepath):

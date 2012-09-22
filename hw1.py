@@ -4,8 +4,10 @@
 from nltk.corpus import PlaintextCorpusReader
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
+from nltk.probability import FreqDist
 
 # lists all sub-directories from this directory
+# TODO: FINISH
 def get_sub_directories(directory):
     return None
 
@@ -48,3 +50,18 @@ def load_collection_tokens(directory):
         li.extend(tokens)
     return li
 
+# SECTION 2
+
+# load most frequent n words associated with a file or collection
+def get_top_words(path, n):
+    files = get_all_files(path) # returns [] if path is a file
+    fdist = FreqDist()
+    if(len(files) == 0):
+        for word in load_file_tokens(path):
+            fdist.inc(word)
+    else:
+        for f in files:
+            for word in load_collection_tokens(path):
+                fdist.inc(word)  
+    li = fdist.keys()
+    return li[:n]

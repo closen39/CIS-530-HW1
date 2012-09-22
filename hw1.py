@@ -104,4 +104,31 @@ def get_top_n_topic_words(topic_words_dict, n):
         li.append(w)
     return li[:n]
 
+def create_feature_space(inputlist):
+    dict1 = {}
+    index = 0
+    for sent in inputlist:
+        for word in sent.split(' '):
+            if word not in dict1:
+                dict1[word] = index
+                index += 1
+    return dict1
+
+def vectorize(feature_space, string):
+    tokens = word_tokenize(string)
+    li = list()
+    """
+    for k in feature_space.keys():
+        if k in tokens:
+            li[feature_space[k]] = 1
+        else:
+            li[feature_space[k]] = 0
+    """           
+    for i in range(len(feature_space)):
+        li.append(0)
+    for word in tokens:
+        if word in feature_space:
+            li[feature_space[word]] = 1
+    return li
+
 

@@ -90,3 +90,17 @@ def get_top_words_with_stoplist(path, n):
     li = fdist.keys()
     return li[:n]
 
+def load_topic_words(topic_file):
+    dict1 = {}
+    file1 = open(topic_file)
+    for line in file1:
+        x = line.split(' ')
+        dict1[x[0]] = x[1]
+
+def get_top_n_topic_words(topic_words_dict, n):
+    li = list()
+    for w in sorted(topic_words_dict, key=topic_words_dict.get):
+        li.extend(w)
+    return li[:n]
+
+

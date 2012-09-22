@@ -116,14 +116,7 @@ def create_feature_space(inputlist):
 
 def vectorize(feature_space, string):
     tokens = word_tokenize(string)
-    li = list()
-    """
-    for k in feature_space.keys():
-        if k in tokens:
-            li[feature_space[k]] = 1
-        else:
-            li[feature_space[k]] = 0
-    """           
+    li = list()      
     for i in range(len(feature_space)):
         li.append(0)
     for word in tokens:

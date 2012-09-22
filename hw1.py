@@ -67,9 +67,8 @@ def get_top_words(path, n):
         for word in load_file_tokens(path):
             fdist.inc(word)
     else:
-        for f in files:
-            for word in load_collection_tokens(path):
-                fdist.inc(word)  
+        for word in load_collection_tokens(path):
+            fdist.inc(word)  
     li = fdist.keys()
     return li[:n]
 

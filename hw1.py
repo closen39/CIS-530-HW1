@@ -93,7 +93,7 @@ def get_top_words_with_stoplist(path, n):
 def load_topic_words(topic_file):
     dict1 = {}
     file1 = open(topic_file)
-    for line in file1:
+    for line.strip() in file1:
         x = line.split(' ')
         dict1[x[0]] = x[1]
     return dict1

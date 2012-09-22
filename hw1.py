@@ -7,6 +7,7 @@ from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
 
 # lists all sub-directories from this directory
+# Functional, but does not work on empty directories!
 def get_sub_directories(directory):
     files = PlaintextCorpusReader(directory, ".*")
     dirs = list()

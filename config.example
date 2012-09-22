@@ -6,8 +6,8 @@ topicWordCutoff = 0.1
 
 ==== Directory to compute topic words on ====
 
-inputDir = /home1/c/cis530/hw1/data/small/Starbucks
+inputDir = /home1/c/cis530/hw1/data/full/Starbucks
 
 ==== Output File ====
 
-outputFile = /home1/j/jmow/School/code/cis530/hw1/Starbucks.ts
+outputFile = /home1/j/jmow/School/code/cis530/hw1/Starbucks_full.ts

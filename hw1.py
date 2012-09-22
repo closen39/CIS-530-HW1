@@ -72,3 +72,23 @@ def get_top_words(path, n):
                 fdist.inc(word)  
     li = fdist.keys()
     return li[:n]
+
+def get_top_words_with_stoplist(path, n):
+    # read in stoplist file
+    stoplistfile = open('/home1/c/cis530/hw1/stoplist.txt')
+    stoplist = [line.strip() for line in stoplistfile]
+
+    files = get_all_files(path) # returns [] if path is a file
+    fdist = FreqDist()
+    if(len(files) == 0):
+        for word in load_file_tokens(path):
+            if(word not in stoplist):
+                fdist.inc(word)
+    else:
+        for f in files:
+            for word in load_collection_tokens(path):
+                if(word not in stoplist):
+                    fdist.inc(word)  
+    li = fdist.keys()
+    return li[:n]
+

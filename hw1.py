@@ -100,8 +100,8 @@ def load_topic_words(topic_file):
 
 def get_top_n_topic_words(topic_words_dict, n):
     li = list()
-    for w in sorted(topic_words_dict, key=topic_words_dict.get):
-        li.extend(w)
+    for w in sorted(topic_words_dict, key=topic_words_dict.get, reverse=True):
+        li.append(w)
     return li[:n]
 
 

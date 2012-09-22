@@ -95,7 +95,7 @@ def load_topic_words(topic_file):
     file1 = open(topic_file)
     for line in file1:
         x = line.strip().split(' ')
-        dict1[x[0]] = x[1]
+        dict1[x[0]] = float(x[1])
     return dict1
 
 def get_top_n_topic_words(topic_words_dict, n):

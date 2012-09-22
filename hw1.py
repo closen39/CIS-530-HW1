@@ -96,6 +96,7 @@ def load_topic_words(topic_file):
     for line in file1:
         x = line.split(' ')
         dict1[x[0]] = x[1]
+    return dict1
 
 def get_top_n_topic_words(topic_words_dict, n):
     li = list()

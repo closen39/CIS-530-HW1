@@ -125,14 +125,13 @@ def vectorize(feature_space, string):
             li[feature_space[word]] = 1
     return li
 
-<<<<<<< HEAD
 def dice_similarity(x, y):
     sumMin, sumSum = 0
     for i in range(min(len(x), len(y))):
         sumMin += min(x[i], y[i])
         sumSum += x[i] + y[i]
     return 2 * sumMin / sumSum
-=======
+
 def jaccard_similarity(x, y):
     sumMin = 0
     sumMax = 0
@@ -151,6 +150,4 @@ def cosine_similarity(x, y):
         xSquare += x[i] * x[i]
         ySquare += y[i] * y[i]
     return prodCross / (sqrt(xSquare) * sqrt(ySquare))
-
->>>>>>> 0ca9d42600fedfe2e6d9ee83a50cd52351771a24
 

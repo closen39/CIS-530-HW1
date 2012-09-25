@@ -214,16 +214,10 @@ def get_word_contexts(word, path):
     tokens = load_collection_tokens(path)
     context = set()
 
-    prev = tokens[0]
-    addNext = False
-    for token in tokens:
-        curr = token
-        if addNext:
-            context.add(curr)
-            addNext = False
-            prev = curr
-            continue
-        if curr == word:
-            context.add(prev)
-            addNext = True
-        prev = curr
+    while word in tokens:
+        index = tokens.index(word)
+        if index > 0:
+            context.add(tokens[index-1])
+        if index < len(tokens) - 1:
+            context.add(tokens[index+1])
+        tokens.remove(word)

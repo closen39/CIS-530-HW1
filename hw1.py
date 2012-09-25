@@ -183,12 +183,12 @@ def get_doc_sim(dir):
 def get_score(dir, w):
     files = get_all_files(dir)
     totalScore = 0.0
-    totalDocs = 0
+    totalDocs = 0.0
     for file1 in files:
         tokens = set(load_file_tokens(dir + "/" + file1))
         v = get_doc_vector(tokens, w)
-        countS = 0
-        countH = 0
+        countS = 0.0
+        countH = 0.0
         simS = 0.0
         simH = 0.0
         for file2 in files:

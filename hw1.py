@@ -185,14 +185,14 @@ def get_score(dir, w):
     totalScore = 0.0
     totalDocs = 0
     for file1 in files:
-        tokens = set(load_file_tokens(file1))
+        tokens = set(load_file_tokens(dir + "/" + file1))
         v = get_doc_vector(tokens, w)
         countS = 0
         countH = 0
         simS = 0.0
         simH = 0.0
         for file2 in files:
-            f2_tokens = set(load_file_tokens(file2))
+            f2_tokens = set(load_file_tokens(dir + "/" + file2))
             f2v = get_doc_vector(f2_tokens, w)
             if 'Starbucks' in file2:
                 countS += 1

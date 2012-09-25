@@ -221,3 +221,5 @@ def get_word_contexts(word, path):
         if index < len(tokens) - 1:
             context.add(tokens[index+1])
         tokens.remove(word)
+
+    return context

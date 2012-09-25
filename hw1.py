@@ -146,7 +146,7 @@ def cosine_similarity(x, y):
     prodCross = 0
     xSquare = 0
     ySquare = 0
-    for i in min(len(x), len(y)):
+    for i in range(min(len(x), len(y))):
         prodCross += x[i] * y[i]
         xSquare += x[i] * x[i]
         ySquare += y[i] * y[i]

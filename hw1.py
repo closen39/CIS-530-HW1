@@ -6,6 +6,7 @@ from nltk.corpus import PlaintextCorpusReader
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
+from math import sqrt
 
 # lists all sub-directories from this directory
 # Functional, but does not work on empty directories!
@@ -123,5 +124,24 @@ def vectorize(feature_space, string):
         if word in feature_space:
             li[feature_space[word]] = 1
     return li
+
+def jaccard_similarity(x, y):
+    sumMin = 0
+    sumMax = 0
+    n = min(len(x), len(y))
+    for i in range(n):
+        sumMin += min(x[i], y[i])
+        sumMax += max(x[i], y[i])
+    return sumMin/sumMax
+
+def cosine_similarity(x, y):
+    prodCross = 0
+    xSquare = 0
+    ySquare = 0
+    for i in min(len(x), len(y)):
+        prodCross += x[i] * y[i]
+        xSquare += x[i] * x[i]
+        ySquare += y[i] * y[i]
+    return prodCross / (sqrt(xSquare) * sqrt(ySquare))
 
 

@@ -161,3 +161,35 @@ def get_doc_vector(D, W):
             v.append(0)
     return v
 
+def get_doc_sim(dir):
+    s1 = get_top_words(dir + '/Starbucks', 50)
+    h1 = get_top_words(dir + '/H.J.Heinz', 50)
+    w1 = list(set(s1) | set(h1))
+
+    s2 = get_top_words_with_stoplist(dir + '/Starbucks', 50)
+    h2 = get_top_words_with_stoplist(dir + '/H.J.Heinz', 50)
+    w2 = list(set(s2) | set(h2))
+
+    s3 = get_top_n_topic_words('Starbucks_small.ts')
+    h3 = get_top_n_topic_words('Heinz_small.ts')
+    w3 = list(set(s3) | set(h3))
+
+    files = get_all_files(dir)
+    for file1 in files:
+        sim = 0
+        tokens = set(load_file_tokens(file1))
+        v1 = get_doc_vector(tokens, w1)
+        v2 = get_doc_vector(tokens, w2)
+        v3 = get_doc_vector(tokens, w3)
+        for file2 in files:
+            f2_tokens = set(load_file_tokens(file2))
+            f2v1 = get_doc_vector(f2_tokens, w1)
+            f2v2 = get_doc_vector(f2_tokens, w2)
+            f2v3 = get_doc_vector(f2_tokens, w3)
+            score1 = cosine_similarity(v1, f2v1)
+            score2 = cosine_similarity(v2, f2v2)
+            score3 = cosine_similarity(v3, f2v3)
+            
+
+def get_score(doc):
+    if 'Starbucks' in doc:

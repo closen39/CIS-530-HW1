@@ -170,8 +170,10 @@ def get_doc_sim(dir):
     h2 = get_top_words_with_stoplist(dir + '/H.J.Heinz', 50)
     w2 = list(set(s2) | set(h2))
 
-    s3 = get_top_n_topic_words('Starbucks_small.ts')
-    h3 = get_top_n_topic_words('Heinz_small.ts')
+    t1 = load_topic_words('Starbucks_small.ts')
+    s3 = get_top_n_topic_words(t1, 50)
+    t2 = load_topic_words('Heinz_small.ts')
+    h3 = get_top_n_topic_words(t2, 50)
     w3 = list(set(s3) | set(h3))
 
     # make a list out of these three values

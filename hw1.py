@@ -126,7 +126,8 @@ def vectorize(feature_space, string):
     return li
 
 def dice_similarity(x, y):
-    sumMin, sumSum = 0
+    sumMin = 0
+    sumSum = 0
     for i in range(min(len(x), len(y))):
         sumMin += min(x[i], y[i])
         sumSum += x[i] + y[i]

@@ -189,7 +189,22 @@ def get_doc_sim(dir):
             score1 = cosine_similarity(v1, f2v1)
             score2 = cosine_similarity(v2, f2v2)
             score3 = cosine_similarity(v3, f2v3)
-            
+    pass
 
-def get_score(doc):
-    if 'Starbucks' in doc:
+def get_word_contexts(word, path):
+    tokens = load_collection_tokens(path)
+    context = set()
+
+    prev = tokens[0]
+    addNext = False
+    for token in tokens:
+        curr = token
+        if addNext:
+            context.add(curr)
+            addNext = False
+            prev = curr
+            continue
+        if curr == word:
+            context.add(prev)
+            addNext = True
+        prev = curr

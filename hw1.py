@@ -140,7 +140,7 @@ def jaccard_similarity(x, y):
     for i in range(n):
         sumMin += min(x[i], y[i])
         sumMax += max(x[i], y[i])
-    return sumMin/sumMax
+    return float(sumMin/sumMax)
 
 def cosine_similarity(x, y):
     prodCross = 0

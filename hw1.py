@@ -211,7 +211,7 @@ def get_score(dir, w):
     return totalScore / totalDocs
 
 def get_word_contexts(word, path):
-    tokens = load_collection_tokens()
+    tokens = load_collection_tokens(path)
     context = set()
 
     while word in tokens:

@@ -222,4 +222,4 @@ def get_word_contexts(word, path):
             context.add(tokens[index+1])
         tokens.remove(word)
 
-    return context
+    return list(context)

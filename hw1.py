@@ -211,7 +211,7 @@ def get_score(dir, w):
     return totalScore / totalDocs
 
 def get_word_contexts(word, path):
-    tokens = load_collection_tokens(path)
+    tokens = load_collection_tokens()
     context = set()
 
     while word in tokens:
@@ -223,3 +223,10 @@ def get_word_contexts(word, path):
         tokens.remove(word)
 
     return list(context)
+
+def get_common_contexts(word1, word2, path):
+    l1 = get_word_contexts(word1, path)
+    l2 = get_word_contexts(word2, path)
+
+    return list(set(l1) & set(l2))
+

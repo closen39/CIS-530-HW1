@@ -152,3 +152,12 @@ def cosine_similarity(x, y):
         ySquare += y[i] * y[i]
     return prodCross / (sqrt(xSquare) * sqrt(ySquare))
 
+def get_doc_vector(D, W):
+    v = list()
+    for i in range(len(W)):
+        if W[i] in D:
+            v.append(1)
+        else:
+            v.append(0)
+    return v
+

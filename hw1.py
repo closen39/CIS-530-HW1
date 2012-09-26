@@ -150,7 +150,7 @@ def cosine_similarity(x, y):
         prodCross += x[i] * y[i]
         xSquare += x[i] * x[i]
         ySquare += y[i] * y[i]
-    if (xSquare == 0 || ySquare == 0):
+    if (xSquare == 0 or ySquare == 0):
         return 0.0
     return prodCross / (sqrt(xSquare) * sqrt(ySquare))
 

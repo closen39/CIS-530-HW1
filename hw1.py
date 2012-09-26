@@ -242,14 +242,14 @@ def compare_word_sim(path):
         contexts.extend(con)
 
     fs = create_feature_space(contexts)
-    context_vectors = list()
-    for context in contexts:
-        context_vectors.append(vectorize(fs, context))
+    vectors = list()
+    for word in top_words:
+        vectors.append(vectorize(fs, word))
 
     ret = list()
-    for vector1 in context_vectors:
+    for vector1 in vectors:
         temp = list()
-        for vector2 in context_vectors:
+        for vector2 in vectors:
             temp.append(cosine_similarity(vector1, vector2))
         ret.append(temp)
     return ret

@@ -271,16 +271,16 @@ def get_common_contexts(word1, word2, path):
 def compare_word_sim(path):
     tw = load_topic_words('Starbucks_small.ts')
     top_words = get_top_n_topic_words(tw, 10)
-    contexts = list()
+    contexts = {}
 
     for word in top_words:
         con = get_word_contexts(word, path)
-        contexts.extend(con)
+        contexts[word] = con
 
-    fs = create_feature_space(contexts)
+    fs = create_feature_space(contexts.values())
     vectors = list()
     for word in top_words:
-        vectors.append(vectorize(fs, word))
+        vectors.append(vectorize(fs, contexts[word]))
 
     ret = list()
     for vector1 in vectors:

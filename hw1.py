@@ -277,7 +277,11 @@ def compare_word_sim(path):
         con = get_word_contexts(word, path)
         contexts[word] = con
 
-    fs = create_feature_space(contexts.values())
+    fs = {}
+    index = 0
+    for context in contexts.values():
+        print context
+
     vectors = list()
     for word in top_words:
         vectors.append(vectorize(fs, contexts[word]))

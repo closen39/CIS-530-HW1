@@ -269,7 +269,7 @@ def get_common_contexts(word1, word2, path):
     return list(set(l1) & set(l2))
 
 def compare_word_sim(path):
-    tw = load_topic_words('Starbucks_full.ts')
+    tw = load_topic_words('Starbucks_small.ts')
     top_words = get_top_n_topic_words(tw, 10)
     contexts = list()
 

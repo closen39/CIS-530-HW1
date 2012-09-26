@@ -183,6 +183,8 @@ def cosine_similarity(x, y):
         prodCross += x[i] * y[i]
         xSquare += x[i] * x[i]
         ySquare += y[i] * y[i]
+    if (xSquare == 0 or ySquare == 0):
+        return 0.0
     return prodCross / (sqrt(xSquare) * sqrt(ySquare))
 
 def get_doc_vector(D, W):
@@ -259,3 +261,32 @@ def get_word_contexts(word, path):
 
 if  __name__ =='__main__':
     main()
+
+def get_common_contexts(word1, word2, path):
+    l1 = get_word_contexts(word1, path)
+    l2 = get_word_contexts(word2, path)
+
+    return list(set(l1) & set(l2))
+
+def compare_word_sim(path):
+    tw = load_topic_words('Starbucks_full.ts')
+    top_words = get_top_n_topic_words(tw, 10)
+    contexts = list()
+
+    for word in top_words:
+        con = get_word_contexts(word, path)
+        contexts.extend(con)
+
+    fs = create_feature_space(contexts)
+    context_vectors = list()
+    for context in contexts:
+        context_vectors.append(vectorize(fs, context))
+
+    ret = list()
+    for vector1 in context_vectors:
+        temp = list()
+        for vector2 in context_vectors:
+            temp.append(cosine_similarity(vector1, vector2))
+        ret.append(temp)
+    return ret
+

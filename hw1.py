@@ -280,7 +280,10 @@ def compare_word_sim(path):
     fs = {}
     index = 0
     for context in contexts.values():
-        print context
+        for word in context:
+            if word not in fs:
+                fs[word] = index
+                index += 1
 
     vectors = list()
     for word in top_words:

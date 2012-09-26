@@ -287,7 +287,14 @@ def compare_word_sim(path):
 
     vectors = list()
     for word in top_words:
-        vectors.append(vectorize(fs, contexts[word]))
+        tokens = contexts[word]
+        li = list()      
+        for i in range(len(fs)):
+            li.append(0)
+        for tok in tokens:
+            if tok in fs:
+                li[fs[tok]] = 1
+        vectors.append(vectorize(fs, li)
 
     ret = list()
     for vector1 in vectors:

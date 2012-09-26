@@ -294,7 +294,7 @@ def compare_word_sim(path):
         for tok in tokens:
             if tok in fs:
                 li[fs[tok]] = 1
-        vectors.append(vectorize(fs, li))
+        vectors.append(li)
 
     ret = list()
     for vector1 in vectors:

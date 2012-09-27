@@ -172,9 +172,9 @@ def get_doc_sim(dir):
     h2 = get_top_words_with_stoplist(dir + '/H.J.Heinz', 50)
     w2 = list(set(s2) | set(h2))
 
-    t1 = load_topic_words('Starbucks_small.ts')
+    t1 = load_topic_words('Starbucks.ts')
     s3 = get_top_n_topic_words(t1, 50)
-    t2 = load_topic_words('Heinz_small.ts')
+    t2 = load_topic_words('H.J.Heinz.ts')
     h3 = get_top_n_topic_words(t2, 50)
     w3 = list(set(s3) | set(h3))
 
@@ -226,9 +226,6 @@ def get_word_contexts(word, path):
 
     return list(context)
 
-if  __name__ =='__main__':
-    main()
-
 def get_common_contexts(word1, word2, path):
     l1 = get_word_contexts(word1, path)
     l2 = get_word_contexts(word2, path)
@@ -236,7 +233,7 @@ def get_common_contexts(word1, word2, path):
     return list(set(l1) & set(l2))
 
 def compare_word_sim(path):
-    tw = load_topic_words('Starbucks_small.ts')
+    tw = load_topic_words('Starbucks.ts')
     top_words = get_top_n_topic_words(tw, 10)
     contexts = {}
 

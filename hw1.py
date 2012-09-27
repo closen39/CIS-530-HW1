@@ -8,39 +8,6 @@ from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
 from math import sqrt
 
-# main method
-def main():
-    corpus_root = '/home1/c/cis530/hw1/data/small'
-
-    print "\n\n# 1.1(a)\n>>> get_sub_directories(corpus_root)"
-    print get_sub_directories(corpus_root)
-
-    print "\n\n# 1.1(b)\n>>> get_all_files(corpus_root) "
-    print get_all_files(corpus_root)
-
-    print "\n\n# 1.2(a)\n>>> load_file_sentences(corpus_root + '/Starbucks/50778.txt')"
-    print load_file_sentences(corpus_root + '/Starbucks/50778.txt')
-
-    print "\n\n# 1.2(b)\n>>> load_collection_sentences(corpus_root)"
-    print load_collection_sentences(corpus_root)
-
-    print "\n\n# 1.2(c)\n>>> load_file_tokens(corpus_root + '/Starbucks/50778.txt')"
-    print load_file_tokens(corpus_root + '/Starbucks/50778.txt')
-
-    print "\n\n# 1.2(d)\n>>> load_collection_tokens(corpus_root)"
-    print load_collection_tokens(corpus_root)
-
-    print "\n\n# 2.1(a)\n>>> get_top_words(corpus_root, 100)"
-    print get_top_words(corpus_root, 100)
-
-    print "\n\n# 2.1(b)\n>>> get_top_words_with_stoplist(corpus_root, 100)"
-    print get_top_words_with_stoplist(corpus_root, 100)
-
-    print "\n\n# 2.3(a)\n>>> load_topic_words(ts_root + '/Starbucks.ts')"
-
-
-
-
 # lists all sub-directories from this directory
 # Functional, but does not work on empty directories!
 def get_sub_directories(directory):
